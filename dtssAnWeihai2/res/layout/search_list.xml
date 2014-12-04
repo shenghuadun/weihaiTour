@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/search_findlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#F1F1F1"
+        android:orientation="vertical"
+        android:padding="3dp" >
+
+        <Button
+            android:id="@+id/search_find"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/find_btn" />
+
+        <EditText
+            android:id="@+id/search_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/search_find"
+            android:background="@drawable/info_edit_bg"
+            android:gravity="center_vertical"
+            android:hint="搜索"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/search_searchchoose"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/search_type"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_top"
+            android:text="类型"
+            android:textColor="#666666"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/search_sort"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_top"
+            android:text="排序"
+            android:textColor="#666666"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    
+	<com.handmark.pulltorefresh.library.PullToRefreshListView
+		android:id="@+id/search_listView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		ptr:ptrHeaderTextColor="#555555"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#666666"
+        android:dividerHeight="1.5px" />
+
+</LinearLayout>

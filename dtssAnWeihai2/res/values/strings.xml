@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">威海旅游</string>
+    <string name="pull_to_refresh_pull_label">松开刷新</string>
+    <string name="pull_to_refresh_refresh_lasttime">最近更新</string>
+    <string name="more_data">加载更多</string>
+    <string name="load_more">加载更多</string>
+
+</resources>

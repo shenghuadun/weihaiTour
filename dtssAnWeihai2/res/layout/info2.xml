@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/info2_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/info_image" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="威海旅游官方客户端，是基于移动终端的智慧导航、导览、导游、导购等功能的移动客户端，为游客和市民提供旅游信息查询、旅游产品预订等旅游公共信息服务，实现一部便携网络终端设备玩转威海。借助网络终端与网络实时互动，让游客获取旅游信息更加便捷、舒适与满意。"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+</LinearLayout>

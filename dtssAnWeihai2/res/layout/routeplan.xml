@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF">
+    
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" 
+            android:layout_marginRight="10dp">
+            
+            <Button
+                android:id="@+id/btnNavi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_alignParentTop="true"
+				android:text="导航" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentTop="true"
+				android:layout_alignParentRight="true"
+				android:text="下一节点" />
+            <Button
+                android:id="@+id/pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@id/next"
+				android:text="上一节点" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:id="@+id/floatBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#ffffff"
+        android:paddingTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/startLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="起点：当前位置"
+            android:textColor="#222222"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/start"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginLeft="40dp" 
+            android:textColor="#999"
+            android:singleLine="true">
+        </TextView>
+
+        <TextView
+            android:id="@+id/endLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="终点："
+            android:textColor="#222222"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/end"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp" 
+            android:textColor="#999"
+            android:textSize="14sp" >
+        </TextView>
+
+        <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:paddingBottom="10dp">
+	        <Button
+	            android:id="@+id/drive"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="5dip"
+	            android:layout_marginRight="5dip"
+	            android:layout_weight="1"
+	            android:text="驾车搜索"
+	            android:textSize="16sp" />
+	
+	        <Button
+	            android:id="@+id/transit"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="5dip"
+	            android:layout_marginRight="5dip"
+	            android:layout_weight="1"
+	            android:text="公交搜索"
+	            android:textSize="16sp" />
+	
+	        <Button
+	            android:id="@+id/walk"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="5dip"
+	            android:layout_marginRight="5dip"
+	            android:layout_weight="1"
+	            android:text="步行搜索"
+	            android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+	
+
+</RelativeLayout>

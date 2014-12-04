@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                
+                <com.handmark.pulltorefresh.library.PullToRefreshListView
+				    android:id="@+id/food_listView"
+			        android:layout_width="match_parent"
+			        android:layout_height="match_parent"
+			        ptr:ptrHeaderTextColor="#555555"
+			        android:smoothScrollbar="true" />
+                <com.handmark.pulltorefresh.library.PullToRefreshListView
+				    android:id="@+id/restaurant_listView"
+			        android:layout_width="match_parent"
+			        android:layout_height="match_parent"
+			        ptr:ptrHeaderTextColor="#555555"
+			        android:smoothScrollbar="true"/>
+                <com.handmark.pulltorefresh.library.PullToRefreshListView
+				    android:id="@+id/scenic_listView"
+			        android:layout_width="match_parent"
+			        android:layout_height="match_parent"
+			        ptr:ptrHeaderTextColor="#555555"
+			        android:smoothScrollbar="true"/>
+				
+                <com.handmark.pulltorefresh.library.PullToRefreshListView
+				    android:id="@+id/entertainment_listView"
+			        android:layout_width="match_parent"
+			        android:layout_height="match_parent"
+			        ptr:ptrHeaderTextColor="#555555"
+			        android:smoothScrollbar="true"/>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+    
+    <View android:id="@+id/page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+     </View>
+    <View android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+     </View>
+</LinearLayout>

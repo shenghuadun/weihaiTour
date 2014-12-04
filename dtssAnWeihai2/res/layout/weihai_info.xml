@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include
+                android:id="@+id/info_clud1"
+                layout="@layout/info1" />
+
+            <include
+                android:id="@+id/info_clud2"
+                layout="@layout/info2" />
+
+            <include
+                android:id="@+id/info_clud3"
+                layout="@layout/info3" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

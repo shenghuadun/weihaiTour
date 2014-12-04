@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F8FE"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/sugges_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/border_with_corner"
+        android:padding="10dp"
+        android:textColor="#555"
+        android:gravity="top"
+        android:hint="请输入内容"
+        android:lines="5" />
+
+    <EditText
+        android:id="@+id/sugges_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/border_with_corner"
+        android:padding="10dp"
+        android:textColor="#555"
+        android:gravity="top"
+        android:hint="请输入联系电话"
+        android:phoneNumber="true"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/sugges_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/border_with_corner"
+        android:padding="10dp"
+        android:textColor="#555"
+        android:gravity="top"
+        android:hint="请输入邮箱"
+        android:inputType="textEmailAddress"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/sugges_submit"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="8dp"
+        android:background="#00B6ED"
+        android:text="提交"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+</LinearLayout>

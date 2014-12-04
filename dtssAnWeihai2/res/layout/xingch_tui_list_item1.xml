@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/xingch_tui_list_item1_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#99999999"
+        android:padding="3dp"
+        android:text="第一天 2011-08-15"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/xingch_tui_list_item1_listView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#666666"
+        android:dividerHeight="0.5px" />
+
+</LinearLayout>
