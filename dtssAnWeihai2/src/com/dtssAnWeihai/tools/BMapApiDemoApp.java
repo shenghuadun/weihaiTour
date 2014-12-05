@@ -107,7 +107,7 @@ public class BMapApiDemoApp extends Application {
 		option.setLocationMode(LocationMode.Hight_Accuracy);
 		//返回的定位结果是百度经纬度，默认值gcj02
 		option.setCoorType("gcj02");
-		int span=1000;
+		int span=5000;
 		option.setScanSpan(span);//设置发起定位请求的间隔时间为5000ms
 		option.setIsNeedAddress(true);
 		mLocationClient.setLocOption(option);

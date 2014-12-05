@@ -41,35 +41,38 @@ public class NavigatorActivity extends BaseActivity
 		BNavigator.getInstance().setListener(mBNavigatorListener);
 		BNavigator.getInstance().startNav();
 		
-		// 初始化TTS. 开发者也可以使用独立TTS模块，不用使用导航SDK提供的TTS
-		BNTTSPlayer.initPlayer();
-		//设置TTS播放回调
-		BNavigatorTTSPlayer.setTTSPlayerListener(new IBNTTSPlayerListener() {
-            
-            @Override
-            public int playTTSText(String arg0, int arg1) {
-            	//开发者可以使用其他TTS的API
-                return BNTTSPlayer.playTTSText(arg0, arg1);
-            }
-            
-            @Override
-            public void phoneHangUp() {
-                //手机挂断
-            	BNTTSPlayer.setPhoneIn(true);
-            }
-            
-            @Override
-            public void phoneCalling() {
-                //通话中
-            	BNTTSPlayer.setPhoneIn(false);
-            }
-            
-            @Override
-            public int getTTSState() {
-            	//开发者可以使用其他TTS的API,
-                return BNTTSPlayer.getTTSState();
-            }
-        });
+		if(getIntent().getBooleanExtra("ttsOn", false))
+		{
+			// 初始化TTS. 开发者也可以使用独立TTS模块，不用使用导航SDK提供的TTS
+			BNTTSPlayer.initPlayer();
+			//设置TTS播放回调
+			BNavigatorTTSPlayer.setTTSPlayerListener(new IBNTTSPlayerListener() {
+	            
+	            @Override
+	            public int playTTSText(String arg0, int arg1) {
+	            	//开发者可以使用其他TTS的API
+	                return BNTTSPlayer.playTTSText(arg0, arg1);
+	            }
+	            
+	            @Override
+	            public void phoneHangUp() {
+	                //手机挂断
+	            	BNTTSPlayer.setPhoneIn(true);
+	            }
+	            
+	            @Override
+	            public void phoneCalling() {
+	                //通话中
+	            	BNTTSPlayer.setPhoneIn(false);
+	            }
+	            
+	            @Override
+	            public int getTTSState() {
+	            	//开发者可以使用其他TTS的API,
+	                return BNTTSPlayer.getTTSState();
+	            }
+	        });
+		}
 		
 		BNRoutePlaner.getInstance().setObserver(new RoutePlanObserver(this, new IJumpToDownloadListener() {
 			
@@ -149,6 +152,12 @@ public class NavigatorActivity extends BaseActivity
         BNavigator.getInstance().pause();
         super.onPause();
         BNMapController.getInstance().onPause();
+        
+
+		if(getIntent().getBooleanExtra("ttsOn", false))
+		{
+			BNTTSPlayer.stopTTS();
+		}
     }
     
     @Override

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="horizontal" >
+
+    <ScrollView
+        android:id="@+id/level1Scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:background="#e8f3ff"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#d1e7ff"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/scenic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="1dp"
+                android:background="#e8f3ff"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_search_scenic" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView1"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"
+                    android:text="景点" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_right" />
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/hotel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="1dp"
+                android:background="#e8f3ff"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_search_hotel" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView2"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"
+                    android:text="住宿" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_right" />
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/res"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="1dp"
+                android:background="#e8f3ff"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_search_res" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView3"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"
+                    android:text="餐饮" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_right" />
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/traffic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="1dp"
+                android:background="#e8f3ff"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_search_traf" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView4"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"
+                    android:text="交通" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_right" />
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/shopping"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="1dp"
+                android:background="#e8f3ff"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_search_shop" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView5"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"
+                    android:text="购物" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_right" />
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/play"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="1dp"
+                android:background="#e8f3ff"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_search_play" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView6"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"
+                    android:text="娱乐" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_right" />
+                
+            </RelativeLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/level2List"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="1dp"
+        android:divider="#d1e7ff"
+        android:layout_weight="1" >
+    </ListView>
+    
+</LinearLayout>

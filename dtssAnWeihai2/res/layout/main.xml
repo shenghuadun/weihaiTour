@@ -69,7 +69,6 @@
         </LinearLayout>
         
         
-        
 		<ImageView
 		    android:id="@+id/qrcode"
 		    android:layout_width="60dp"
@@ -77,7 +76,6 @@
 		    android:layout_marginRight="10dp"
 		    android:src="@drawable/qrcode" 
 		    android:layout_centerVertical="true"
-		    android:visibility="gone"
 		    android:layout_toLeftOf="@id/main_weather"/>
 		
 		<ImageView
@@ -86,7 +84,6 @@
 		    android:layout_height="30dp"
 		    android:src="@drawable/search" 
 		    android:layout_centerVertical="true"
-		    android:visibility="gone"
 		    android:layout_toLeftOf="@id/qrcode"/>
     </RelativeLayout>
 

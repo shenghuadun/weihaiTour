@@ -152,7 +152,8 @@ public class IndexActivity extends Activity {
 		{
 			Intent intent = new Intent();
 			intent.setClass(IndexActivity.this, WebviewActivity.class);
-			
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.putExtra("title", "威海旅游");
 			switch (v.getId())
 			{
 			case R.id.btn_english:

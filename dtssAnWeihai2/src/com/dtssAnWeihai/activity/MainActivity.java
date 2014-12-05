@@ -193,14 +193,34 @@ public class MainActivity extends ActivityGroup {
 			}
 		});
 		
+		btnSearch.setOnClickListener(new OnClickListener()
+		{
+			
+			@Override
+			public void onClick(View v)
+			{
+//				Intent intent = new Intent();
+//				intent.setClass(MainActivity.this, SearchActivity.class);
+//				startActivity(intent);
+
+				intent = new Intent(MainActivity.this, WebviewActivity.class);
+				intent.putExtra("weburl", "http://m.whta.cn/weihai/search/searchByKeyword.action");
+				intent.putExtra("title", "搜索");
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				
+			}
+		});
+		
 		qrcode.setOnClickListener(new OnClickListener()
 		{
 			
 			@Override
 			public void onClick(View v)
 			{
-				Toast.makeText(MainActivity.this, "尚未实现", Toast.LENGTH_LONG).show();
-				
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, QRCodeActivity.class);
+				startActivity(intent);
 			}
 		});
 	}

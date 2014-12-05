@@ -79,8 +79,8 @@
 
                 <Button
                     android:id="@+id/search_detail_startvoice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginRight="3dp"
                     android:background="@drawable/start_btn" />
 
@@ -110,6 +110,7 @@
             
             
             <LinearLayout
+                android:id="@+id/btnContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"

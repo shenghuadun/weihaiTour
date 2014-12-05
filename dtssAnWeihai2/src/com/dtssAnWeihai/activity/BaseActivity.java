@@ -11,11 +11,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
-import cn.jpush.android.a.f;
-
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
-import com.baidu.navisdk.ui.widget.NewerGuideDialog;
 import com.dtssAnWeihai.tools.HttpUtil;
 
 public class BaseActivity extends SherlockActivity
@@ -84,10 +81,10 @@ public class BaseActivity extends SherlockActivity
 				{
 					e.printStackTrace();
 					
-					Message msg = onNetWorkErrorHandler.obtainMessage();
+					Message msg = handler.obtainMessage();
 					msg.obj = new JSONObject();
-
 					handler.sendMessage(msg);
+					
 					onNetWorkErrorHandler.sendEmptyMessage(0);
 					return;
 				}

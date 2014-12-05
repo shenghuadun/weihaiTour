@@ -364,32 +364,37 @@ public class MyTools {
 	}
 	
 	/**
-	 * 请求用户确认，并拨打电话
+	 * 拨打电话
 	 * @param context
 	 * @param num
 	 */
 	public static void doCall(final Activity activity, final String num)
 	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-		builder.setTitle("提示")
-		.setMessage("确定要拨打电话" + num + "?");
-		builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
-		{
-			public void onClick(DialogInterface dialog, int id)
-			{
-				Intent intent2 = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + num));
-				activity.startActivity(intent2);
-			}
-        });
-		builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() 
-		{
-			public void onClick(DialogInterface dialog, int id)
-			{
-				dialog.dismiss();
-			}
-        });
-
-		builder.create().show();
+//		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+//		builder.setTitle("提示")
+//		.setMessage("确定要拨打电话" + num + "?");
+//		builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+//		{
+//			public void onClick(DialogInterface dialog, int id)
+//			{
+//				Intent intent2 = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + num));
+//				activity.startActivity(intent2);
+//			}
+//        });
+//		builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() 
+//		{
+//			public void onClick(DialogInterface dialog, int id)
+//			{
+//				dialog.dismiss();
+//			}
+//        });
+//
+//		builder.create().show();
+		
+		Intent intent=new Intent();
+		intent.setAction(Intent.ACTION_DIAL);
+		intent.setData(Uri.parse("tel:" + num));
+		activity.startActivity(intent);
 	}
 
 }

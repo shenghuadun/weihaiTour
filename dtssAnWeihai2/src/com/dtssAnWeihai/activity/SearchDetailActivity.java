@@ -88,6 +88,12 @@ public class SearchDetailActivity extends BaseActivity {
 		status = intent.getStringExtra("status");
 		enterType = intent.getStringExtra("enterType");
 		
+		//只有景区景点进来才显示
+		if(!"scenic".equals(status))
+		{
+			findViewById(R.id.btnContainer).setVisibility(View.GONE);
+		}
+		
 		// 判断是否已收藏
 		try {
 			DatabaseHelper database = new DatabaseHelper(getApplicationContext());

@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -110,7 +113,7 @@ public class RoutePlanActivity extends BaseActivity {
 	private Animation hideAnimation;
 	private boolean isFloatBarShowing = true;
 	
-	private boolean isEngineInitSuccess = false;
+	private static boolean isEngineInitSuccess = false;
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
@@ -417,7 +420,7 @@ public class RoutePlanActivity extends BaseActivity {
 			}
 			// 获取路线规划算路模式
 			int calcMode = BNRoutePlaner.getInstance().getCalcMode();
-			Bundle bundle = new Bundle();
+			final Bundle bundle = new Bundle();
 			bundle.putInt(BNavConfig.KEY_ROUTEGUIDE_VIEW_MODE,
 					BNavigator.CONFIG_VIEW_MODE_INFLATE_MAP);
 			bundle.putInt(BNavConfig.KEY_ROUTEGUIDE_CALCROUTE_DONE,
@@ -437,9 +440,35 @@ public class RoutePlanActivity extends BaseActivity {
 			
 
 			Log.d("RoutePlanActivity", "启动导航...");
-			Intent intent = new Intent(getApplicationContext(), NavigatorActivity.class);
-			intent.putExtras(bundle);
-			startActivity(intent);
+			
+			AlertDialog.Builder builder = new AlertDialog.Builder(RoutePlanActivity.this);
+			builder.setTitle("提示")
+			.setMessage("是否开启语音?")
+			.setPositiveButton("开启", new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+					Intent intent = new Intent(getApplicationContext(), NavigatorActivity.class);
+					intent.putExtras(bundle);
+					intent.putExtra("ttsOn", true);
+					startActivity(intent);
+					
+					dialog.dismiss();
+				}
+	        })
+			.setNegativeButton("不开启", new DialogInterface.OnClickListener() 
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+					Intent intent = new Intent(getApplicationContext(), NavigatorActivity.class);
+					intent.putExtras(bundle);
+					intent.putExtra("ttsOn", false);
+					startActivity(intent);
+					
+					dialog.dismiss();
+				}
+	        }).create().show();
+			
 		}
 
 		@Override

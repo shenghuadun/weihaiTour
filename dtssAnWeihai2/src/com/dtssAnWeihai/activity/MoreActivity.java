@@ -1,9 +1,13 @@
 package com.dtssAnWeihai.activity;
 
+import java.io.File;
+
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -13,6 +17,7 @@ import android.widget.Toast;
 import cn.jpush.android.api.JPushInterface;
 
 import com.dtssAnWeihai.tools.JPushUtil;
+import com.dtssAnWeihai.tools.MyConfig;
 import com.dtssAnWeihai.tools.MyTools;
 
 public class MoreActivity extends BaseActivity implements OnClickListener
@@ -89,14 +94,19 @@ public class MoreActivity extends BaseActivity implements OnClickListener
 		switch (v.getId())
 		{
 		case R.id.personalInfo:
-			intent = new Intent(this, PersonalActivity.class);
+//			intent = new Intent(this, PersonalActivity.class);
+//			startActivity(intent);
+			intent = new Intent(MoreActivity.this, WebviewActivity.class);
+			intent.putExtra("weburl", "http://m.whta.cn/weihai/person/personalCenter.action");
+			intent.putExtra("title", "个人中心");
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			break;
 		case R.id.btnPushMsg:
 			togglePushStatus();
 			break;
 		case R.id.clearCache:
-			Toast.makeText(this, "清除缓存，待实现", Toast.LENGTH_LONG).show();
+			clearCache();
 			break;
 		case R.id.contact:
 			MyTools.doCall(MoreActivity.this, "063112301");
@@ -115,6 +125,75 @@ public class MoreActivity extends BaseActivity implements OnClickListener
 			break;
 		}
 		
+	}
+
+	/**
+	 * 清理缓存
+	 */
+	private void clearCache()
+	{
+		showLoading("正在清理");
+		File f = new File(MyConfig.filepath);
+		
+		String result  = "清理失败";
+		try
+		{
+			if (f.exists())
+			{
+				if(delete(f))
+				{
+					result = "清理完成";
+				}
+				else
+				{
+					result = "清理失败，请确认SD卡已经插入";
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		Message msg = clearCacheHandler.obtainMessage();
+		msg.obj = result;
+		clearCacheHandler.sendMessageDelayed(msg, 1000);
+		
+	}
+
+	private Handler clearCacheHandler = new Handler(){
+		@Override
+		public void handleMessage(Message msg)
+		{
+			hideLoading();
+			String result = (String) msg.obj;
+			Toast.makeText(MoreActivity.this, result, Toast.LENGTH_SHORT).show();
+		}
+		
+	};
+	
+	private boolean delete(File file) 
+	{  
+	   if (file.isFile()) 
+	   {  
+		   return file.delete();  
+	   }  
+	
+	   if(file.isDirectory())
+	   {  
+	       File[] childFiles = file.listFiles();  
+	       if (childFiles == null || childFiles.length == 0) 
+	       {  
+	    	   return file.delete();  
+	       }  
+	 
+	       for (int i = 0; i < childFiles.length; i++) 
+	       {  
+	           delete(childFiles[i]);  
+	       }  
+	       return file.delete();  
+	   }  
+	   return false;
 	}
 
 	/**
