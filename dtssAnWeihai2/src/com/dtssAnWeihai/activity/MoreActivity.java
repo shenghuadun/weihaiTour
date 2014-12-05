@@ -149,6 +149,10 @@ public class MoreActivity extends BaseActivity implements OnClickListener
 					result = "清理失败，请确认SD卡已经插入";
 				}
 			}
+			else
+			{
+				result = "清理完成";
+			}
 		}
 		catch (Exception e)
 		{
