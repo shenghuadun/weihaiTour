@@ -1,21 +1,18 @@
 package com.dtssAnWeihai.activity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.text.Html;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,7 +26,6 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.view.MenuItem;
 import com.dtssAnWeihai.tools.DatabaseHelper;
-import com.dtssAnWeihai.tools.HttpUtil;
 import com.dtssAnWeihai.tools.MediaPlayerTool;
 import com.dtssAnWeihai.tools.MyConfig;
 import com.dtssAnWeihai.tools.MyTools;
@@ -201,10 +197,32 @@ public class SearchDetailActivity extends BaseActivity {
 			@Override
 			public void onClick(View v)
 			{
-				Toast.makeText(getApplicationContext(), "建设中...", Toast.LENGTH_LONG).show();
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("unitId", id);
+				doRequest("http://60.216.117.244/wisdomyt/detail/scenicMap.action", params, guideInfoHandler, "post");
 			}
 		});
 	}
+
+	private Handler guideInfoHandler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			String result = (String) msg.obj;
+			try
+			{
+				JSONObject jsonObject = new JSONObject(result);
+				
+				String path = jsonObject.getString("path");
+				
+				Intent intent = WebviewActivity.getIntent(SearchDetailActivity.this, path, "导游导览");
+				startActivity(intent);
+			}
+			catch (JSONException e)
+			{
+				Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+			}
+
+		}
+	};
 	
 	private void getInfo() {
 		showLoading();

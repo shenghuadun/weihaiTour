@@ -20,6 +20,15 @@ public class WebviewActivity extends BaseActivity {
 	private String weburl;
 	private String title;
 	private String status;
+	
+	public static Intent getIntent(Context context, String url, String title)
+	{
+		Intent intent = new Intent(context, WebviewActivity.class);
+		intent.putExtra("weburl", url);
+		intent.putExtra("title", title);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		return intent;
+	}
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

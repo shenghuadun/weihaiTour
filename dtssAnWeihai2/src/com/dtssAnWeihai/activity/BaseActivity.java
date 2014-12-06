@@ -97,6 +97,38 @@ public class BaseActivity extends SherlockActivity
 		}).start();
 	}
 	
+	/**
+	 * 在handler的msg.obj返回对应的字符串响应
+	 * @param url
+	 * @param params
+	 * @param handler
+	 * @param method
+	 * @return
+	 */
+	public void doRequest(final String url, final Map<String, String> params, final Handler handler, final String method)
+	{
+		new Thread(new Runnable()
+		{
+			@Override
+			public void run() 
+			{
+				String result;
+				if("get".equalsIgnoreCase(method))
+				{
+					result = HttpUtil.httpGet(url, params);
+				}
+				else 
+				{
+					result = HttpUtil.http(url, params);
+				}
+				Message msg = handler.obtainMessage();
+				msg.obj = result;
+				handler.sendMessage(msg);
+			}
+
+		}).start();
+	}
+	
 	private Handler onNetWorkErrorHandler = new Handler()
 	{
 		@Override
