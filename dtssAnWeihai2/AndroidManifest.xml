@@ -102,6 +102,7 @@
         <activity
             android:name="com.dtssAnWeihai.activity.SoundPlayActivity"
             android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Dialog"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.dtssAnWeihai.activity.SearchActivity"

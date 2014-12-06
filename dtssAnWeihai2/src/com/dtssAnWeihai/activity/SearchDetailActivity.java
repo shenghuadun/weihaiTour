@@ -153,6 +153,7 @@ public class SearchDetailActivity extends BaseActivity {
 						mediaPlayerTool.start();
 						playtatus = true;
 						voicestatus = true;
+						search_detail_startvoice.setBackgroundResource(R.drawable.stop_btn);
 					} else {
 						// 缓冲并播放
 						mediaPlayerTool = new MediaPlayerTool(search_detail_seekbar, search_detail_startvoice, search_detail_voicepro);
