@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ import android.widget.Toast;
 import com.dtssAnWeihai.entity.ZiXunEntity;
 import com.dtssAnWeihai.tools.MyConfig;
 
-public class ZiXunListActivity extends BaseActivity {
+public class ZiXunListActivity extends BaseActivity{
 
 	private ListView listView;
 	
@@ -48,9 +49,9 @@ public class ZiXunListActivity extends BaseActivity {
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-//				Intent intent = new Intent(ZiXunListActivity.this, ZiXunDetailActivity.class);
-//				intent.putExtra("id", ((ZiXunListAdapter.ViewHolder)arg1.getTag()).id.getText());
-//				startActivity(intent);
+				Intent intent = new Intent(ZiXunListActivity.this, ZiXunDetailActivity.class);
+				intent.putExtra("id", ((ZiXunListAdapter.ViewHolder)arg1.getTag()).id);
+				startActivity(intent);
 			}
 		});
 	}
@@ -79,6 +80,7 @@ public class ZiXunListActivity extends BaseActivity {
 				}
 				adapter = new ZiXunListAdapter(ZiXunListActivity.this, list);
 				listView.setAdapter(adapter);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				Toast.makeText(ZiXunListActivity.this, "暂未查找到数据!", Toast.LENGTH_SHORT).show();
@@ -129,12 +131,15 @@ public class ZiXunListActivity extends BaseActivity {
 			viewHolder.title = (TextView) convertView.findViewById(R.id.zixun_title);
 			viewHolder.title.setText(list.get(position).getTitle());
 			
+			viewHolder.id = list.get(position).getId();
+			
 			return convertView;
 		}
 
 		public static class ViewHolder {
-			public TextView id;
+			public String id;
 			public TextView title;
 		}
 	}
+
 }

@@ -8,14 +8,14 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -174,6 +174,20 @@ public class RoutePlanActivity extends BaseActivity {
 			public void onMapClick(LatLng latlng)
 			{
 				toggleFloatBar();
+			}
+		});
+		
+		floatBar.setOnTouchListener(new OnTouchListener()
+		{
+			@Override
+			public boolean onTouch(View v, MotionEvent event)
+			{
+				if(event.getAction() == MotionEvent.ACTION_DOWN  && !isFloatBarShowing)
+				{
+					showFloatBar();
+					return true;
+				}
+				return false;
 			}
 		});
 	}

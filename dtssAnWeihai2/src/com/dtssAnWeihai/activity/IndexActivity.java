@@ -232,11 +232,13 @@ public class IndexActivity extends Activity {
 				intent.putExtra("title", "购物");
 				break;
 			case R.id.main_hotel:
-//				intent.setClass(MainActivity.allThis, SearchListActivity.class);
-//				intent.putExtra("status", "hotel");
-				intent.setClass(IndexActivity.this, WebviewActivity.class);
-				intent.putExtra("weburl", MyConfig.HOTELURL);
+				intent.setClass(MainActivity.allThis, SearchListActivity.class);
+				intent.putExtra("status", "hotel");
 				intent.putExtra("title", "住宿");
+				
+//				intent.setClass(IndexActivity.this, WebviewActivity.class);
+//				intent.putExtra("weburl", MyConfig.HOTELURL);
+//				intent.putExtra("title", "住宿");
 				break;
 			case R.id.main_traff:
 //				intent.setClass(MainActivity.allThis, SearchListActivity.class);
