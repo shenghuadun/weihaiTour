@@ -729,8 +729,6 @@ public class RoutePlanActivity extends BaseActivity {
 		mBaiduMap.setMyLocationEnabled(false);
 		mMapView.onDestroy();
 		mMapView = null;
-
-		BNRoutePlaner.getInstance().setObserver(null);
 	}
     
 

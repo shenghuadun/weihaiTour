@@ -57,6 +57,8 @@ public class QRCodeActivity extends BaseActivity implements SurfaceHolder.Callba
 	private boolean playBeep;
 	private static final float BEEP_VOLUME = 0.10f;
 	private boolean vibrate;
+	
+	private String qrText;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -190,14 +192,14 @@ public class QRCodeActivity extends BaseActivity implements SurfaceHolder.Callba
 		playBeepSoundAndVibrate();
 		
 		
-		String result = obj.getText();
+		qrText = obj.getText();
 		
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("id", result);
-		doNetWorkJob("http://60.216.117.244/wisdomyt/search/listenVideo.action", params, audioHandler);
+		params.put("id", qrText);
+		doNetWorkJob("http://60.216.117.244/wisdomyt/search/listenVideo.action", params, scanHandler);
 	}
 	
-	private Handler audioHandler = new Handler(){
+	private Handler scanHandler = new Handler(){
 
 		@Override
 		public void handleMessage(Message msg)
@@ -214,6 +216,7 @@ public class QRCodeActivity extends BaseActivity implements SurfaceHolder.Callba
 					intent.putExtra("id", json.getString("id"));
 					
 					startActivity(intent);
+					finish();
 				}
 				catch (JSONException e)
 				{
@@ -222,9 +225,36 @@ public class QRCodeActivity extends BaseActivity implements SurfaceHolder.Callba
 			}
 			else 
 			{
-				Toast.makeText(QRCodeActivity.this, "没有找到解说音频！", Toast.LENGTH_LONG).show();
+//				Toast.makeText(QRCodeActivity.this, "没有找到解说音频！", Toast.LENGTH_LONG).show();
+				
+				AlertDialog.Builder builder = new AlertDialog.Builder(QRCodeActivity.this);
+				builder.setTitle("确定用浏览器打开吗？")
+				.setMessage(qrText);
+				builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+				{
+					public void onClick(DialogInterface dialog, int id)
+					{
+						Intent intent = new Intent();
+						intent.setAction(Intent.ACTION_VIEW);
+						intent.setData(Uri.parse(qrText));
+						startActivity(intent);
+
+						finish();
+					}
+		        });
+				builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() 
+				{
+					public void onClick(DialogInterface dialog, int id)
+					{
+						dialog.dismiss();
+						
+						startActivity(new Intent(getApplicationContext(), QRCodeActivity.class));
+						finish();
+					}
+		        });
+		
+				builder.create().show();
 			}
-			finish();
 		}
 	};
 
