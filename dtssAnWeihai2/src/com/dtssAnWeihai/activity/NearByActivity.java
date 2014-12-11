@@ -9,10 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
@@ -83,7 +86,7 @@ public class NearByActivity extends BaseActivity
 						JSONObject json = data.getJSONObject(i);
 						
 						SearchListEntity entity = new SearchListEntity();
-						entity.setId(json.getString("unitId"));
+						entity.setId(json.getString("typeId"));
 						entity.setAddress(json.getString("address"));
 						entity.setDistance(json.getString("distance"));
 						entity.setImage(json.getString("image"));
@@ -276,6 +279,11 @@ public class NearByActivity extends BaseActivity
 		restaurant_listView.setOnRefreshListener(onRefreshListener);
 		scenic_listView.setOnRefreshListener(onRefreshListener);
 		entertainment_listView.setOnRefreshListener(onRefreshListener);
+		
+		food_listView.setOnItemClickListener(onItemClickListener);
+		restaurant_listView.setOnItemClickListener(onItemClickListener);
+		scenic_listView.setOnItemClickListener(onItemClickListener);
+		entertainment_listView.setOnItemClickListener(onItemClickListener);
 	}
 	
 	private OnTabChangeListener onTabChangeListener = new OnTabChangeListener()
@@ -342,6 +350,20 @@ public class NearByActivity extends BaseActivity
 		
 	};
 
+	private OnItemClickListener onItemClickListener = new OnItemClickListener()
+	{
+
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+		{
+			Intent intent = new Intent(NearByActivity.this, SearchDetailActivity.class);
+			intent.putExtra("id", currentDataList.get(position).getId());
+			intent.putExtra("status", (String)currentListView.getTag(R.id.type));
+//			intent.putExtra("enterType", );
+			startActivity(intent);
+		}
+	};
+	
 	
 	@Override
 	protected void onDestroy()
