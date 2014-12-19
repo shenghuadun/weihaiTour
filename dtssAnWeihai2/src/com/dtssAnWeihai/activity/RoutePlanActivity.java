@@ -78,7 +78,7 @@ import com.dtssAnWeihai.tools.BMapApiDemoApp;
  * @Email cpy781@163.com
  * 2014-7-9
  */
-public class RoutePlanActivity extends BaseActivity {
+public class RoutePlanActivity extends BaseActionBarActivity {
 
 	// UI相关
 	private Button mBtnDrive = null; // 驾车搜索

@@ -21,7 +21,7 @@ import com.dtssAnWeihai.tools.MyTools;
  * @Email cpy781@163.com
  * 2014-5-23
  */
-public class ActiveDetailActivity extends BaseActivity {
+public class ActiveDetailActivity extends BaseActionBarActivity {
 
 	private TextView active_detail_name, active_detail_startdate, active_detail_enddate, active_detail_acttime, active_detail_city, active_detail_website, active_detail_phone, active_detail_scenic, active_detail_info;
 	private ImageView active_detail_image;

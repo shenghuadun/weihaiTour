@@ -19,7 +19,7 @@ import com.baidu.navisdk.ui.widget.RoutePlanObserver;
 import com.baidu.navisdk.ui.widget.RoutePlanObserver.IJumpToDownloadListener;
 import com.baidu.nplatform.comapi.map.MapGLSurfaceView;
 
-public class NavigatorActivity extends BaseActivity
+public class NavigatorActivity extends BaseActionBarActivity
 {
 
 	public void onCreate(Bundle savedInstanceState){

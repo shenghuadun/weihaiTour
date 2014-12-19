@@ -23,7 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SearchActivity extends BaseActivity implements OnClickListener{
+public class SearchActivity extends BaseActionBarActivity implements OnClickListener{
 	private static final int BACK_COLOR_SELECTED = Color.rgb(209, 231, 255);
 	private static final int BACK_COLOR_NORMAL = Color.rgb(232, 243, 255);
 

@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.dtssAnWeihai.tools.MyConfig;
 
-public class WeatherActivity extends BaseActivity {
+public class WeatherActivity extends BaseActionBarActivity {
 	
 	private TextView weather_date, weather_wendu, weather_windy;
 	private ImageView weather_image;

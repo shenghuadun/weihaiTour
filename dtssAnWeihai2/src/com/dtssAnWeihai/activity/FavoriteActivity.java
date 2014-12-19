@@ -26,7 +26,7 @@ import com.dtssAnWeihai.tools.MyTools;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-6-12
  */
-public class FavoriteActivity extends BaseActivity {
+public class FavoriteActivity extends BaseActionBarActivity {
 	
 	private ListView listView;
 	private List<FavoriteEntity> list = new ArrayList<FavoriteEntity>();

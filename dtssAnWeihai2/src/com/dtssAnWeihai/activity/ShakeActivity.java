@@ -22,7 +22,7 @@ import com.dtssAnWeihai.tools.ShakeListener.OnShakeListener;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-4-17
  */
-public class ShakeActivity extends BaseActivity {
+public class ShakeActivity extends BaseActionBarActivity {
 
 	private ImageView image;
 	AnimationDrawable animationDrawable;

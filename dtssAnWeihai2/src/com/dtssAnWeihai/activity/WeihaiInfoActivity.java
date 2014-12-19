@@ -21,7 +21,7 @@ import com.dtssAnWeihai.tools.MyTools;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-4-25
  */
-public class WeihaiInfoActivity extends BaseActivity {
+public class WeihaiInfoActivity extends BaseActionBarActivity {
 	
 	private View clud1, clud2, clud3;
 	

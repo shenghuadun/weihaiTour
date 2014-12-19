@@ -5,7 +5,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,10 +12,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
 import com.dtssAnWeihai.tools.HttpUtil;
 import com.dtssAnWeihai.tools.MyJSONObject;
 
-public class BaseActivity extends Activity
+public class BaseActionBarActivity extends SherlockActivity
 {
 	private ProgressDialog progressDialog;
 	
@@ -25,10 +26,25 @@ public class BaseActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
-		setTheme(android.R.style.Theme_Light_NoTitleBar);
+		setTheme(R.style.CustomActionBarTheme);
 		
 		progressDialog = new ProgressDialog(this);
 		
+		getSupportActionBar().setDisplayShowHomeEnabled(false);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch (item.getItemId())
+	    {
+	    case android.R.id.home:
+	    	finish();
+	        return true;
+	    }
+		
+		return super.onOptionsItemSelected(item);
 	}
 
 	/**
@@ -152,6 +168,33 @@ public class BaseActivity extends Activity
 	}
 
 
+//	/**
+//	 * 用于非UI线程弹出Loading框
+//	 * 0 隐藏
+//	 * 1提示msg.obj对应的字符串
+//	 * 其他提示"正在获取数据..."
+//	 */
+//	protected Handler promotionHandler = new Handler()
+//	{
+//		@Override
+//		public void handleMessage(Message msg)
+//		{
+//			switch (msg.what)
+//			{
+//			case 0:
+//				hideLoading();
+//				break;
+//			case 1:
+//				showLoading((String)msg.obj);
+//				break;
+//
+//			default:
+//				showLoading();
+//				break;
+//			}
+//		}
+//	};
+	
 	protected String getSdcardDir() 
 	{
 		if (Environment.getExternalStorageState().equalsIgnoreCase(

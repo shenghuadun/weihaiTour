@@ -31,7 +31,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
  * @Email cpy781@163.com
  * 2014-6-14
  */
-public class GonglueActivity extends BaseActivity {
+public class GonglueActivity extends BaseActionBarActivity {
 	private PullToRefreshListView listView;
 	private List<GonglueEntity> list = new ArrayList<GonglueEntity>();
 	private GonglueAdapter adapter;

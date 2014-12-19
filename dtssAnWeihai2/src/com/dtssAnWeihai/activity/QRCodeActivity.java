@@ -44,7 +44,7 @@ import com.google.zxing.Result;
 /**
  * 二维码扫描
  */
-public class QRCodeActivity extends BaseActivity implements SurfaceHolder.Callback{
+public class QRCodeActivity extends BaseActionBarActivity implements SurfaceHolder.Callback{
 
 
 	private CaptureActivityHandler handler;

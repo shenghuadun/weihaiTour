@@ -14,7 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-public class WebviewActivity extends BaseActivity {
+public class WebviewActivity extends BaseActionBarActivity {
 	private WebView webView;
 	private TextView web_title;
 	private String weburl;

@@ -16,7 +16,7 @@ import com.dtssAnWeihai.tools.MyLoginUser;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-2-21
  */
-public class PersonalActivity extends BaseActivity implements OnClickListener {
+public class PersonalActivity extends BaseActionBarActivity implements OnClickListener {
 
 	private LinearLayout personal_userinfo, personal_gologin;
 	private TextView personal_name, personal_address, personal_email, personal_login;

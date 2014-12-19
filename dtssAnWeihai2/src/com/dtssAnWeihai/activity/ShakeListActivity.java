@@ -33,7 +33,7 @@ import com.dtssAnWeihai.tools.MyConfig;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-4-17
  */
-public class ShakeListActivity extends BaseActivity implements OnClickListener {
+public class ShakeListActivity extends BaseActionBarActivity implements OnClickListener {
 	private ListView listView;
 	private Button shake_res, shake_hotel, shake_scenic, shake_play, shake_shop;
 	

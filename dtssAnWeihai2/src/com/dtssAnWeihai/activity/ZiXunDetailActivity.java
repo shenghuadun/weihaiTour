@@ -12,7 +12,7 @@ import android.os.Message;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-public class ZiXunDetailActivity extends BaseActivity{
+public class ZiXunDetailActivity extends BaseActionBarActivity{
 	
 	private TextView titleTextView;
 	private WebView contentView;

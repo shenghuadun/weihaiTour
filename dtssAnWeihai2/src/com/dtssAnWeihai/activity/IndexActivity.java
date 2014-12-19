@@ -43,9 +43,7 @@ public class IndexActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.index);
-		MainActivity.main_title.setText("主页");
-		MainActivity.main_top_left.setVisibility(View.VISIBLE);
-		MainActivity.main_weather.setVisibility(View.VISIBLE);
+		MainActivity.hideTitle();
 		initView();
 
 		fram = (RelativeLayout) findViewById(R.id.fram);

@@ -40,6 +40,8 @@ public class MainActivity extends ActivityGroup {
 	public static Button main_top_left;
 	public static TextView main_title;
 	public static LinearLayout main_weather;
+	public static ImageView btn_qrcode;
+	public static ImageView btn_Search;
 	
 	private TextView weather_wendu;
 	private ImageView weather_image;
@@ -162,6 +164,9 @@ public class MainActivity extends ActivityGroup {
 		btnSearch = (ImageView) findViewById(R.id.btnSearch);
 		qrcode = (ImageView) findViewById(R.id.qrcode);
 		
+		btn_qrcode = qrcode;
+		btn_Search = btnSearch;
+		
 		linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
 		mTab1 = (Button) findViewById(R.id.bottom_main);
 		mTab2 = (Button) findViewById(R.id.bottom_guide);
@@ -242,15 +247,15 @@ public class MainActivity extends ActivityGroup {
 		
 		@Override
 		public void onClick(View v) {
-//			reset();
 			switch (v.getId()) {
 			case R.id.bottom_main:
-//				mTab1.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.main2) , null, null);
+				reset();
+				mTab1.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.main2) , null, null);
 				// 跳转事件
 				switchActivity(ZERO);
 				break;
 			case R.id.bottom_guide:
-//				mTab2.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.guide2) , null, null);
+				mTab2.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.guide2) , null, null);
 				// 跳转事件
 				switchActivity(ONE);
 				break;
@@ -260,14 +265,20 @@ public class MainActivity extends ActivityGroup {
 				switchActivity(TWO);
 				break;
 			case R.id.bottom_nearby:
-//				mTab4.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.nearby2) , null, null);
+				reset();
+				mTab4.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.nearby2) , null, null);
 				// 跳转事件
 				switchActivity(THREE);
 				break;
 
 			case R.id.bottom_more:
-				Intent intent = new Intent(MainActivity.this, MoreActivity.class);
-				startActivity(intent);
+
+				reset();
+				mTab5.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.more2) , null, null);
+//				Intent intent = new Intent(MainActivity.this, MoreActivity.class);
+//				startActivity(intent);
+
+				switchActivity(FOUR);
 				break;
 			}
 		}
@@ -327,7 +338,6 @@ public class MainActivity extends ActivityGroup {
 		switch (id) {
 		case ZERO:
 			// 主页
-			linearLayout.removeAllViews();
 			intent = new Intent(this, IndexActivity.class);
 			startActivity("IndexActivity");
 			break;
@@ -338,6 +348,11 @@ public class MainActivity extends ActivityGroup {
 			intent.putExtra("title", "导游导览");
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
+//			
+//			intent = new Intent(this, WebviewActivity.class);
+//			intent.putExtra("weburl", MyConfig.WHTA_GUIDE);
+//			intent.putExtra("title", "导游导览");
+//			startActivity("WebviewActivity");
 			break;
 		case TWO:
 			// 电话
@@ -345,22 +360,51 @@ public class MainActivity extends ActivityGroup {
 			break;
 		case THREE:
 			// 身边
+//			intent = new Intent(this, NearByActivity.class);
+//			startActivity(intent);
+//			
 			intent = new Intent(this, NearByActivity.class);
-			startActivity(intent);
+			startActivity("NearByActivity");
+			showTitle("身边");
 			break;
 		case FOUR:
 			// 更多
+//			intent = new Intent(this, MoreActivity.class);
+//			startActivity(intent);
+
 			intent = new Intent(this, MoreActivity.class);
-			startActivity(intent);
+			startActivity("MoreActivity");
+			showTitle("更多");
 			break;
 		}
 	}
 
+	public static void showTitle(String title)
+	{
+		MainActivity.main_title.setText(title);
+		MainActivity.main_title.setVisibility(View.VISIBLE);
+		MainActivity.main_top_left.setVisibility(View.GONE);
+		MainActivity.main_weather.setVisibility(View.GONE);
+
+		MainActivity.btn_qrcode.setVisibility(View.GONE);
+		MainActivity.btn_Search.setVisibility(View.GONE);
+	}
+	
+	public static void hideTitle()
+	{
+		MainActivity.main_title.setVisibility(View.GONE);
+		MainActivity.main_top_left.setVisibility(View.VISIBLE);
+		MainActivity.main_weather.setVisibility(View.VISIBLE);
+		
+		MainActivity.btn_qrcode.setVisibility(View.VISIBLE);
+		MainActivity.btn_Search.setVisibility(View.VISIBLE);
+	}
+	
 	private void startActivity(String name) {
-//		intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		// 把view 添加到LinearLayout
 		Window window = getLocalActivityManager().startActivity(name, intent);
+		linearLayout.removeAllViews();
 		linearLayout.addView(window.getDecorView(), LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 	}
 

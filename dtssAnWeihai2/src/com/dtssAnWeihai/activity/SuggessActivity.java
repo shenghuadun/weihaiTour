@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.dtssAnWeihai.tools.MyConfig;
 import com.dtssAnWeihai.tools.MyLoginUser;
 
-public class SuggessActivity extends BaseActivity {
+public class SuggessActivity extends BaseActionBarActivity {
 	
 	private EditText sugges_desc, sugges_phone, sugges_email;
 	

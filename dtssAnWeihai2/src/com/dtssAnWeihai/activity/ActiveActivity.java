@@ -34,7 +34,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-4-25
  */
-public class ActiveActivity extends BaseActivity{
+public class ActiveActivity extends BaseActionBarActivity{
 
 	private Button active_year, active_month, active_feature;
 	private PullToRefreshListView listView;

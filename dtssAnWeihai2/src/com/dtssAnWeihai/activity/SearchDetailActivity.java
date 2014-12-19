@@ -36,7 +36,7 @@ import com.dtssAnWeihai.tools.MyTools;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-4-17
  */
-public class SearchDetailActivity extends BaseActivity {
+public class SearchDetailActivity extends BaseActionBarActivity {
 	
 	private Button  search_detail_share, search_detail_book, search_detail_startvoice, search_detail_jiucuo;
 	private ImageView search_detail_image;
@@ -65,8 +65,8 @@ public class SearchDetailActivity extends BaseActivity {
 	// 存放经纬度
 	private JSONObject positionJSON = new JSONObject();
 	
-	private View btnVoice;
-	private View btnGuide;
+//	private View btnVoice;
+//	private View btnGuide;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,11 +84,11 @@ public class SearchDetailActivity extends BaseActivity {
 		status = intent.getStringExtra("status");
 		enterType = intent.getStringExtra("enterType");
 		
-		//只有景区景点进来才显示
-		if(!"scenic".equals(status))
-		{
-			findViewById(R.id.btnContainer).setVisibility(View.GONE);
-		}
+//		//只有景区景点进来才显示
+//		if(!"scenic".equals(status))
+//		{
+//			findViewById(R.id.btnContainer).setVisibility(View.GONE);
+//		}
 		
 		// 判断是否已收藏
 		try {
@@ -132,8 +132,8 @@ public class SearchDetailActivity extends BaseActivity {
 		
 		search_detail_calllay = (LinearLayout) findViewById(R.id.search_detail_calllay);
 		
-		btnVoice = findViewById(R.id.btnVoice);
-		btnGuide = findViewById(R.id.btnGuide);
+//		btnVoice = findViewById(R.id.btnVoice);
+//		btnGuide = findViewById(R.id.btnGuide);
 		
 		search_detail_calllay.setOnClickListener(button_ck);
 		search_detail_share.setOnClickListener(button_ck);
@@ -183,26 +183,26 @@ public class SearchDetailActivity extends BaseActivity {
 			}
 		});
 		
-		btnVoice.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-				search_detail_audio.performClick();
-			}
-		});
-		
-		btnGuide.setOnClickListener(new OnClickListener()
-		{
-			
-			@Override
-			public void onClick(View v)
-			{
-				Map<String, String> params = new HashMap<String, String>();
-				params.put("unitId", id);
-				doRequest("http://60.216.117.244/wisdomyt/detail/scenicMap.action", params, guideInfoHandler, "post");
-			}
-		});
+//		btnVoice.setOnClickListener(new OnClickListener()
+//		{
+//			@Override
+//			public void onClick(View v)
+//			{
+//				search_detail_audio.performClick();
+//			}
+//		});
+//		
+//		btnGuide.setOnClickListener(new OnClickListener()
+//		{
+//			
+//			@Override
+//			public void onClick(View v)
+//			{
+//				Map<String, String> params = new HashMap<String, String>();
+//				params.put("unitId", id);
+//				doRequest("http://60.216.117.244/wisdomyt/detail/scenicMap.action", params, guideInfoHandler, "post");
+//			}
+//		});
 	}
 
 	private Handler guideInfoHandler = new Handler() {
@@ -229,10 +229,15 @@ public class SearchDetailActivity extends BaseActivity {
 		showLoading();
 		
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("infoType", status);
 		params.put("unitId", id);
+		params.put("areacode", MyConfig.AREAID);
+		params.put("infoType", status);
+		
 		if(status.equals("enter"))
+		{
 			params.put("entType", enterType);
+		}
+		
 		doNetWorkJob(MyConfig.HTTPURL + "/search/infoTypeDetail.action", params, handler);
 	}
 

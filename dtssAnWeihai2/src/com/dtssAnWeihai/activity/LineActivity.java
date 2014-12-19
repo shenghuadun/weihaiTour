@@ -48,7 +48,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
  * @author ChenPengyan
  * @Email cpy781@163.com 2014-4-25
  */
-public class LineActivity extends BaseActivity {
+public class LineActivity extends BaseActionBarActivity {
 	
 	private Button search_type, search_sort, search_find;
 	private EditText search_edit;

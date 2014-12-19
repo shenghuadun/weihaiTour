@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.dtssAnWeihai.tools.MediaPlayerTool;
 
-public class SoundPlayActivity extends BaseActivity
+public class SoundPlayActivity extends BaseActionBarActivity
 {
 	private String audioURL = "";
 	private String audioName = "";

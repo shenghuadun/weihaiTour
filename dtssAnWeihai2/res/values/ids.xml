@@ -12,4 +12,6 @@
   <item type="id" name="return_scan_result"/>
   <item type="id" name="search_book_contents_failed"/>
   <item type="id" name="search_book_contents_succeeded"/>
+  <item type="id" name="page"/>
+  <item type="id" name="type"/>
 </resources>

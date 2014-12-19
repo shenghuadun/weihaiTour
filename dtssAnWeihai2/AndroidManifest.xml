@@ -214,6 +214,10 @@
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.dtssAnWeihai.activity.NearByDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.dtssAnWeihai.activity.MoreActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />

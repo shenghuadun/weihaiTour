@@ -17,7 +17,7 @@ import com.dtssAnWeihai.entity.CommEntity;
 import com.dtssAnWeihai.tools.MyConfig;
 import com.dtssAnWeihai.tools.MyLoginUser;
 
-public class MyCommActivity extends BaseActivity {
+public class MyCommActivity extends BaseActionBarActivity {
 	
 	private ListView listView;
 	

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.dtssAnWeihai.tools.MyConfig;
 
-public class RegisterActivity extends BaseActivity {
+public class RegisterActivity extends BaseActionBarActivity {
 
 	private Button register_login, register_submit;
 	private EditText register_name, register_pass, register_pass2, register_phone, register_email, register_address, register_realname;

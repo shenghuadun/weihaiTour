@@ -13,7 +13,7 @@ import android.os.Handler;
 import com.dtssAnWeihai.tools.MyConfig;
 import com.dtssAnWeihai.tools.MyStatusEntity;
 
-public class Welcome extends BaseActivity {
+public class Welcome extends BaseActionBarActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

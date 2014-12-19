@@ -21,7 +21,7 @@ import com.dtssAnWeihai.tools.MyTools;
  * @Email cpy781@163.com
  * 2014-5-23
  */
-public class GonglueDetailActivity extends BaseActivity {
+public class GonglueDetailActivity extends BaseActionBarActivity {
 
 	private TextView gonglue_detail_title, gonglue_detail_type, gonglue_detail_area, gonglue_detail_tourtime, gonglue_detail_recDegree, gonglue_detail_sernote, gonglue_detail_desc;
 	private ImageView gonglue_detail_image;

@@ -27,7 +27,7 @@ import com.dtssAnWeihai.tools.MyTools;
  * @Email cpy781@163.com
  * 2014-5-23
  */
-public class LineDetailActivity extends BaseActivity {
+public class LineDetailActivity extends BaseActionBarActivity {
 
 	private TextView line_detail_name, line_detail_date, line_detail_depart, line_detail_phone, line_detail_desc, line_detail_pricedesc, line_detail_remind, line_detail_reminder;
 	private ImageView line_detail_image;

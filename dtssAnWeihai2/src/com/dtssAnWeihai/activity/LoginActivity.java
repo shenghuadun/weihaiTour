@@ -18,7 +18,7 @@ import com.dtssAnWeihai.entity.LoginUser;
 import com.dtssAnWeihai.tools.MyConfig;
 import com.dtssAnWeihai.tools.MyLoginUser;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActionBarActivity {
 	private EditText login_name, login_pass;
 	private Button login_register, login_submit;
 	

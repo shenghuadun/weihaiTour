@@ -24,7 +24,7 @@ import android.widget.Toast;
 import com.dtssAnWeihai.entity.ZiXunEntity;
 import com.dtssAnWeihai.tools.MyConfig;
 
-public class ZiXunListActivity extends BaseActivity{
+public class ZiXunListActivity extends BaseActionBarActivity{
 
 	private ListView listView;
 	

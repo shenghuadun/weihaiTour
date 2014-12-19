@@ -42,7 +42,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-public class SearchListActivity extends BaseActivity {
+public class SearchListActivity extends BaseActionBarActivity {
 
 	private Button  search_type, search_sort, search_find;
 	private EditText search_edit;
